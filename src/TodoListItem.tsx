@@ -2,34 +2,24 @@ import type { Todo } from "./useToDoListState";
 
 type Props = {
   todo: Todo;
+  handleToggleIsCompleted: (argument: Todo) => void;
   handleDeleteTodo: (argument: Todo) => void;
-  handleToggleCompletedTodo: (argument: Todo) => void;
 };
 
-export function ToDoListItem({
+export function TodoListItem({
   todo,
-  handleToggleCompletedTodo,
+  handleToggleIsCompleted,
   handleDeleteTodo,
 }: Props) {
   return (
     <li>
-      <div>
-        <input
-          type="checkbox"
-          key={todo.id}
-          checked={todo.isCompleted}
-          onChange={() => handleToggleCompletedTodo(todo)}
-        />
-        <label
-          htmlFor={todo.id}
-          style={{
-            textDecoration: todo.isCompleted ? "line-through" : "none",
-            opacity: todo.isCompleted ? ".4" : "1",
-          }}
-        >
-          {todo.text}
-        </label>
-      </div>
+      <input
+        type="checkbox"
+        id={todo.id}
+        checked={todo.isCompleted}
+        onChange={() => handleToggleIsCompleted(todo)}
+      />
+      <label htmlFor={todo.id}>{todo.text}</label>
       <button
         className="delete-todo-button"
         onClick={() => handleDeleteTodo(todo)}

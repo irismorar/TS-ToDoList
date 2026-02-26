@@ -1,21 +1,21 @@
 type Props = {
-  userInput: string;
-  handleChangeUserInput: (argument: string) => void;
+  inputText: string;
+  handleChange: (argument: string) => void;
   handleCreateTodo: () => void;
 };
 
 export function UserInputItem({
-  userInput,
-  handleChangeUserInput,
+  inputText,
+  handleChange,
   handleCreateTodo,
 }: Props) {
   return (
     <input
       type="text"
-      placeholder="What needs to be done?"
-      value={userInput}
+      placeholder="What needs to be done?..."
+      value={inputText}
       onChange={(event) => {
-        handleChangeUserInput(event.target.value);
+        handleChange(event.target.value);
       }}
       onKeyUp={(event) => {
         if (event.key === "Enter") {
