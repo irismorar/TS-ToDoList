@@ -13,6 +13,7 @@ export function UserInputItem({
     <input
       type="text"
       placeholder="What needs to be done?..."
+      className="add-todo-input"
       value={inputText}
       onChange={(event) => {
         handleChange(event.target.value);

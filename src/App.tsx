@@ -10,8 +10,11 @@ export default function App() {
     filter,
     filteredTodos,
     itemsLeft,
+    isEditingTodoId,
     changeUserInput,
     createTodo,
+    editTodo,
+    changeTodoText,
     toggleIsCompletedTodo,
     deleteTodo,
     setFilterAll,
@@ -34,8 +37,11 @@ export default function App() {
               <TodoListItem
                 key={todo.id}
                 todo={todo}
+                isEditingTodo={isEditingTodoId === todo.id}
                 handleToggleIsCompleted={toggleIsCompletedTodo}
                 handleDeleteTodo={deleteTodo}
+                handleEditTodo={editTodo}
+                handleChangeText={changeTodoText}
               />
             );
           })}
